@@ -20,10 +20,18 @@ function closeStyleSwitcher() {
 // Listen for scroll events on the window
 window.addEventListener("scroll", closeStyleSwitcher);
 
+const body = document.body;
+
+var bgColor = body.style.backgroundColor;
 // Function to toggle dark theme and change icon
 var icon = document.getElementById("icon");
 icon.onclick = function () {
   document.body.classList.toggle("dark-theme");
+  if (body.classList.contains("dark-theme")) {
+    body.style.backgroundColor = `${"#151515"}`;
+  } else {
+    body.style.backgroundColor = `${"#ffffff"}`;
+  }
 
   // Toggle icon between sun and moon
   icon.classList.toggle("fa-sun");
